@@ -1,0 +1,19 @@
+
+<div class="row">
+    <div *ngFor="let pokemon of pokemons" class="col s4">
+        <h2> {{ pokemon.name.fr}}</h2>
+        <img [src]="pokemon.sprites.regular" alt="" width="300">
+        <div class="col">
+            <div *ngFor="let pokeType of pokemon.types" class="col s6">
+                <img [src]=" pokeType.image" alt="" width="50">
+            </div>
+        </div>
+        <a class="waves-effect waves-light btn modal-trigger" href="#modal1" (click)="selectedPokemon(pokemon)">Aperçu</a>
+        <a routerLink="/fiche/{{pokemon.pokedex_id}}" class="btn">Fiche pokémon</a>
+    </div>
+</div>
+    
+     <!-- Modal Trigger -->
+     <app-fiche-pokemon [pokemonEnfant]="pokemonParent"></app-fiche-pokemon>
+    
+    
